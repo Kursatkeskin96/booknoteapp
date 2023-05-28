@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #18191A;
+}
+
+  .bluegradient {
+    @apply bg-gradient-to-r from-cyan-200 to-blue-500 shadow-black text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .purplegradient {
+    @apply bg-gradient-to-l from-purple-300 to-pink-600 shadow-black text-transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-blob{
+    
+  }
