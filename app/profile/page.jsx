@@ -1,7 +1,7 @@
 'use client'
 import {useEffect} from 'react'
 import { useSession } from 'next-auth/react'
-import { useRouter, redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 const Profile = () => {
     const {data: session} = useSession()
