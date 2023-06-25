@@ -51,7 +51,7 @@ export default function Home() {
           </div>
           <div>
             <p className="text-white mt-10 lg:mt-5">Discover and manage your favorite books effortlessly. Search, add to favorites, and create notes to enhance your reading experience and never forget a captivating story.</p>
-            <button onClick={() => signIn()} className='mt-5 bg-gradient-to-l from-cyan-400 to-blue-500 text-white h-10 rounded-md w-20'>Login</button>
+            <button onClick={async() => {await signIn()}} className='mt-5 bg-gradient-to-l from-cyan-400 to-blue-500 text-white h-10 rounded-md w-20'>Login</button>
           </div>
         </div>
       )}

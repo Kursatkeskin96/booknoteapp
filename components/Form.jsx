@@ -77,13 +77,13 @@ const UpdateNoteForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='lg:max-w-[30%] w-[90%] mt-20 mx-auto flex flex-col'>
+      <div className='lg:w-[50%] w-[90%] mt-20 mx-auto flex flex-col'>
         <textarea
           value={updatedText}
           onChange={handleTextChange}
           placeholder='Enter updated note text'
           required
-          className='mb-4 lg:min-w-[30%] lg:min-h-[250px] min-w-[80%] min-h-[125px] mx-auto'
+          className='lg:min-w-[100%] min-w-[100%] mb-4 lg:min-h-[250px] min-h-[125px] mx-auto'
         />
       <div className='flex lg:justify-end justify-center'>
       <button className='bg-blue-500 mt-1 text-white p-1 rounded-md lg:marker:mx-2 mx-3 w-20' type='submit'>
