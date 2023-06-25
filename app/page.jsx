@@ -29,7 +29,7 @@ export default function Home() {
        <p className='text-white mt-5'>You signed in as <span className='italic'>{session?.user?.name}.</span>You can search and add books to your library now.</p>
        <form onSubmit={searchBook} className='mt-10'>
             <div className='pt-5'>
-                <input type="text" className='bg-gray-50 border border-gray-300 mx-auto text-gray-900 max-w-[70%] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Enter a book name' value={search} onChange={e => setSearch(e.target.value)}  />
+                <input type="text" className='bg-gray-50 border border-gray-300 mx-auto text-gray-900 lg:max-w-[70%] max-w-[85%] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Enter a book name' value={search} onChange={e => setSearch(e.target.value)}  />
             </div>
             <div className='pt-5'>
                 <button className='mt-5 bg-gradient-to-l from-cyan-400 to-blue-500 text-white h-10 rounded-md w-20'>Search</button>
@@ -57,7 +57,7 @@ export default function Home() {
       )}
       {!session?.user && (
         <div className='mt-16 lg:mt-6'>
-          <Image src={Book1} alt="book" width={400} />
+          <Image src={Book1} alt="book" width={400} priority={true} />
         </div>
       )}
     </div>

@@ -25,4 +25,4 @@ export const POST = async (request) => {
       return new Response('Failed to fetch all books and notes', { status: 500 }); // Updated error message
     }
   };
-  
+
