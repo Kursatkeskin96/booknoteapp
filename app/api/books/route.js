@@ -1,5 +1,6 @@
 import BooksAndNotesModel from '@/models/BooksAndNotes'; // Updated model import name
 import { connectToDB } from '@/config/db';
+export const revalidate = 0; //revalidate api every 1 second
 
 export const POST = async (request) => {
   try {

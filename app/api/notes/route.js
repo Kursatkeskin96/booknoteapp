@@ -1,5 +1,6 @@
 import AddNotes from "@/models/AddNotes";
 import { connectToDB } from '@/config/db';
+export const revalidate = 0; //revalidate api every 1 second
 
 export const POST = async (request) => {
     try {
