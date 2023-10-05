@@ -10,9 +10,12 @@ const UpdateNote = () => {
   const searchParams = useSearchParams();
   const noteId = searchParams.get("id");
 
-  var currentURL = window.location.href;
-  var urlParts = currentURL.split("/");
-  var domain = urlParts[1];
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
   const api = domain
 
   const [post, setPost] = useState({ text: "" });

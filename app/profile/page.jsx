@@ -13,9 +13,13 @@ const ProfilePage = () => {
   const [note, setNote] = useState('');
   const router = useRouter();
 
-  var currentURL = window.location.href;
-  var urlParts = currentURL.split("/");
-  var domain = urlParts[1];
+
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
   const api = domain
 
   useEffect(() => {
