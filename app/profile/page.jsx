@@ -13,6 +13,11 @@ const ProfilePage = () => {
   const [note, setNote] = useState('');
   const router = useRouter();
 
+  var currentURL = window.location.href;
+  var urlParts = currentURL.split("/");
+  var domain = urlParts[1];
+  const api = domain
+
   useEffect(() => {
     if (!session) {
       router.push('/');
@@ -23,7 +28,7 @@ const ProfilePage = () => {
     const fetchData = async () => {
       try {
         if (session) {
-          const response = await axios.get('/api/books');
+          const response = await axios.get(`${api}/api/books`);
           const filteredBooks = response.data.filter(
             (book) => book.addedBy === session?.user?.email
           );
@@ -40,7 +45,7 @@ const ProfilePage = () => {
     const fetchData = async () => {
       try {
         if (session) {
-          const response = await axios.get('/api/notes');
+          const response = await axios.get(`${api}/api/notes`)
           const filteredNotes = response.data.filter(
             (note) => note.addedBy === session?.user?.email
           );
@@ -76,10 +81,10 @@ const ProfilePage = () => {
   
 
     axios
-      .post('/api/notes', noteData)
+      .post(`${api}/api/notes`, noteData)
       .then((res) => {
         console.log('Note saved to library:', res.data);
-        axios.get('/api/notes')
+        axios.get(`${api}/api/notes`)
         .then((response) => {
           const filteredNotes = response.data.filter(
             (note) => note.addedBy === session?.user?.email
@@ -99,7 +104,7 @@ const ProfilePage = () => {
     const hasConfirmed = confirm("Are you sure you want to delete this book");
     if (hasConfirmed) {
     try {
-      const response = await axios.delete(`/api/books/${kitapId}`, {
+      const response = await axios.delete(`${api}/api/books/${kitapId}`, {
         data: { addedBy },
       });
       console.log('Book deleted successfully:', response.data);
@@ -114,7 +119,7 @@ const ProfilePage = () => {
   };}
 
   const handleEdit = (note) => {
-    router.push(`/update-note?id=${note._id}`);
+    router.push(`${api}/update-note?id=${note._id}`);
   };
 
   return (

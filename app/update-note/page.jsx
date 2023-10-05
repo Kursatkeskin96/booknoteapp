@@ -10,13 +10,18 @@ const UpdateNote = () => {
   const searchParams = useSearchParams();
   const noteId = searchParams.get("id");
 
+  var currentURL = window.location.href;
+  var urlParts = currentURL.split("/");
+  var domain = urlParts[1];
+  const api = domain
+
   const [post, setPost] = useState({ text: "" });
   const [submitting, setIsSubmitting] = useState(false);
   const [note, setNote] = useState(null);
 
   useEffect(() => {
     const getNoteDetails = async () => {
-      const response = await fetch(`/api/notes/${noteId}`);
+      const response = await fetch(`${api}/api/notes/${noteId}`);
       const data = await response.json();
 
       setPost({
@@ -35,7 +40,7 @@ const UpdateNote = () => {
     if (!noteId) return alert("Missing noteID!");
 
     try {
-      const response = await fetch(`/api/notes/${noteId}`, {
+      const response = await fetch(`${api}/api/notes/${noteId}`, {
         method: "PATCH",
         body: JSON.stringify({
           note: post.text,
